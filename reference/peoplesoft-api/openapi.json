@@ -77,7 +77,10 @@
           }
         ],
         "description": "Get the Basic Infomation of the Employee.For a Given BSCID",
-        "operationId": ""
+        "operationId": "",
+        "tags": [
+          "Employee"
+        ]
       }
     },
     "/employees/name": {
