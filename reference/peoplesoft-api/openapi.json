@@ -258,6 +258,248 @@
           }
         ]
       }
+    },
+    "/employees/licenses": {
+      "post": {
+        "summary": "Save Employee License / Education Information",
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "Sample Response": {
+                "data": {
+                  "type": "success",
+                  "attributes": {
+                    "info": {
+                      "title": "success",
+                      "message": "Employee License Info is updated successfully.",
+                      "status": "200"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "Sample Response": {}
+            }
+          }
+        },
+        "description": "Save Employee updated License Information",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "bscId"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "licenseName"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "licenseNumber"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "state"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "licenseType"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "date"
+          }
+        ]
+      },
+      "parameters": []
+    },
+    "/employees/education": {
+      "post": {
+        "summary": "Save Employee Education Information",
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "Save Response": {
+                "data": {
+                  "type": "success",
+                  "attributes": {
+                    "info": {
+                      "title": "success",
+                      "message": "Sucessfully saved Education Info.",
+                      "status": "200"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "description": "Save Employees Education Information",
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "bscId"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "nameOfSchool"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "state"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "Type of Degree / Certification"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "Date"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "Major"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "Minor"
+          }
+        ]
+      }
+    },
+    "/employees/emergency": {
+      "post": {
+        "summary": "Save Employee Emergency Contact  Information",
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "Save Emergency Contact Response": {
+                "data": {
+                  "type": "success",
+                  "attributes": {
+                    "info": {
+                      "title": "success",
+                      "message": "Emergency Contact saved successfully.",
+                      "status": "200"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "parameters": [
+          {
+            "type": "string",
+            "in": "header",
+            "name": "bscId"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactLastName"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactFirstName"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactStreetAddress"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactCity"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactState"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactZip"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactphone"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactOtherPhone"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "contactRelationToEmployee"
+          }
+        ],
+        "description": "Save Employee Emergency Contact Information"
+      }
     }
   },
   "definitions": {}
