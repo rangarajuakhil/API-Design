@@ -143,6 +143,118 @@
             "in": "formData",
             "type": "string",
             "name": "suffix"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "bscId",
+            "required": true,
+            "description": ""
+          }
+        ]
+      }
+    },
+    "/employees/contact": {
+      "post": {
+        "summary": "Save Employee Contact Info",
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "Sample Response": {
+                "data": {
+                  "type": "success",
+                  "attributes": {
+                    "info": {
+                      "title": "success",
+                      "message": "Employee Contact Info is updated successfully.",
+                      "status": "200"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "sample Response": {}
+            }
+          }
+        },
+        "description": "Save Employees Contact Information",
+        "parameters": [
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "residentialStreetAddress"
+          },
+          {
+            "type": "string",
+            "in": "header",
+            "name": "bscId",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "residentialCity"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "residentialState"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "residentialZipCode"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "mailingStreetAddress"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "mailingCity"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "mailingState"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "mailingZipCode"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "homePhone"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "officePhone"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "mobilePhone"
           }
         ]
       }
