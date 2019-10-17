@@ -1,0 +1,35 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PeopleSoft API",
+    "version": "1.0"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "paths": {
+    "/employees": {
+      "get": {
+        "summary": "Get Employee Info",
+        "tags": [],
+        "responses": {},
+        "parameters": [
+          {
+            "type": "string",
+            "in": "query",
+            "name": "bscId",
+            "required": true
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {}
+}
