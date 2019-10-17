@@ -19,15 +19,54 @@
       "get": {
         "summary": "Get Employee Info",
         "tags": [],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "example-1": {
+                "lastName": "Banaag",
+                "firstName": "Reuben",
+                "middleInitial": "",
+                "suffix": "",
+                "agency": "",
+                "department": "",
+                "status": "",
+                "address": {
+                  "residential": {
+                    "streetAddress": "",
+                    "city": "",
+                    "state": "",
+                    "zip": ""
+                  },
+                  "mailing": {
+                    "streetAddress": "",
+                    "city": "",
+                    "state": "",
+                    "zip": ""
+                  }
+                },
+                "sex": "",
+                "dob": "",
+                "race": "",
+                "veteranStatus:": ""
+              }
+            }
+          }
+        },
         "parameters": [
           {
             "type": "string",
             "in": "query",
             "name": "bscId",
-            "required": true
+            "required": true,
+            "description": "BscId of the Logged in User"
           }
-        ]
+        ],
+        "description": "Get the Basic Infomation of the Employee."
       }
     }
   },
