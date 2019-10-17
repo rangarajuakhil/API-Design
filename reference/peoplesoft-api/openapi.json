@@ -55,6 +55,16 @@
                 "veteranStatus:": ""
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "Sample Error Response": {}
+            }
           }
         },
         "parameters": [
@@ -66,7 +76,58 @@
             "description": "BscId of the Logged in User"
           }
         ],
-        "description": "Get the Basic Infomation of the Employee."
+        "description": "Get the Basic Infomation of the Employee.For a Given BSCID",
+        "operationId": ""
+      }
+    },
+    "/employees/name": {
+      "post": {
+        "summary": "Save Employee Name Changes",
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "examples": {
+              "Error Response": {}
+            }
+          }
+        },
+        "description": "Save the Changes to the Name of the Employee ",
+        "parameters": [
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "lastName"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "firstName"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "middleInitial"
+          },
+          {
+            "in": "formData",
+            "type": "string",
+            "name": "suffix"
+          }
+        ]
       }
     }
   },
