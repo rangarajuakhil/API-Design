@@ -1,0 +1,76 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PeopleSoft API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/employees": {
+      "get": {
+        "summary": "Get Employee Info",
+        "tags": [
+          "Employees"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {},
+                "examples": {
+                  "example-employee": {
+                    "value": {
+                      "bscId": "1234",
+                      "employeeId": "22334",
+                      "lastName": "Banaag",
+                      "firstName": "Reuben",
+                      "middleInitial": "",
+                      "suffix": "",
+                      "agency": "",
+                      "department": "",
+                      "status": "",
+                      "address": {
+                        "residential": {
+                          "streetAddress": "",
+                          "city": "",
+                          "state": "",
+                          "zip": ""
+                        },
+                        "mailing": {
+                          "streetAddress": "",
+                          "city": "",
+                          "state": "",
+                          "zip": ""
+                        }
+                      },
+                      "sex": "",
+                      "dob": "",
+                      "race": "",
+                      "veteranStatus:": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "bscid",
+            "required": true,
+            "description": "BSCID of the Logged in User"
+          }
+        ]
+      }
+    }
+  }
+}
