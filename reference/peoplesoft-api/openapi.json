@@ -303,7 +303,8 @@
           {
             "type": "string",
             "in": "header",
-            "name": "bscId"
+            "name": "bscId",
+            "required": true
           },
           {
             "in": "formData",
@@ -375,7 +376,8 @@
           {
             "type": "string",
             "in": "header",
-            "name": "bscId"
+            "name": "bscId",
+            "required": true
           },
           {
             "in": "formData",
@@ -450,7 +452,8 @@
           {
             "type": "string",
             "in": "header",
-            "name": "bscId"
+            "name": "bscId",
+            "required": true
           },
           {
             "in": "formData",
