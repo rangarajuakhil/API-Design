@@ -92,6 +92,20 @@
             "schema": {
               "type": "object",
               "properties": {}
+            },
+            "examples": {
+              "Sample Response": {
+                "data": {
+                  "type": "success",
+                  "attributes": {
+                    "info": {
+                      "title": "success",
+                      "message": "Employee Name is updated successfully.",
+                      "status": "200"
+                    }
+                  }
+                }
+              }
             }
           },
           "401": {
