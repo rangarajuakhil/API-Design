@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/employees": {
+    "/employees/{bscid}/name": {
       "get": {
         "summary": "Get Employee Info",
         "responses": {
@@ -35,20 +35,6 @@
                 "agency": "",
                 "department": "",
                 "status": "",
-                "address": {
-                  "residential": {
-                    "streetAddress": "",
-                    "city": "",
-                    "state": "",
-                    "zip": ""
-                  },
-                  "mailing": {
-                    "streetAddress": "",
-                    "city": "",
-                    "state": "",
-                    "zip": ""
-                  }
-                },
                 "sex": "",
                 "dob": "",
                 "race": "",
@@ -56,454 +42,536 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized",
+          "404": {
+            "description": "Not Found",
             "schema": {
               "type": "object",
-              "properties": {}
+              "properties": {
+                "": {
+                  "type": "string"
+                }
+              }
             },
             "examples": {
-              "Sample Error Response": {}
+              "Sample Response": {
+                "error": "BSCID Not Found"
+              }
             }
           }
         },
-        "parameters": [
-          {
-            "type": "string",
-            "in": "query",
-            "name": "bscId",
-            "required": true,
-            "description": "BscId of the Logged in User"
-          }
-        ],
+        "parameters": [],
         "description": "Get the Basic Infomation of the Employee.For a Given BSCID",
         "operationId": "",
         "tags": [
           "Employee"
         ]
-      }
-    },
-    "/employees/name": {
-      "post": {
-        "summary": "Save Employee Name Changes",
-        "tags": [
-          "Employee"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            },
-            "examples": {
-              "Sample Response": {
-                "data": {
-                  "type": "success",
-                  "attributes": {
-                    "info": {
-                      "title": "success",
-                      "message": "Employee Name is updated successfully.",
-                      "status": "200"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            },
-            "examples": {
-              "Error Response": {}
-            }
-          }
-        },
-        "description": "Save the Changes to the Name of the Employee ",
-        "parameters": [
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "lastName"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "firstName"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "middleInitial"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "suffix"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "bscId",
-            "required": true,
-            "description": ""
-          }
-        ]
-      }
-    },
-    "/employees/contact": {
-      "post": {
-        "summary": "Save Employee Contact Info",
-        "tags": [
-          "Employee"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            },
-            "examples": {
-              "Sample Response": {
-                "data": {
-                  "type": "success",
-                  "attributes": {
-                    "info": {
-                      "title": "success",
-                      "message": "Employee Contact Info is updated successfully.",
-                      "status": "200"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            },
-            "examples": {
-              "sample Response": {}
-            }
-          }
-        },
-        "description": "Save Employees Contact Information",
-        "parameters": [
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "residentialStreetAddress"
-          },
-          {
-            "type": "string",
-            "in": "header",
-            "name": "bscId",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "residentialCity"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "residentialState"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "residentialZipCode"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "mailingStreetAddress"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "mailingCity"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "mailingState"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "mailingZipCode"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "homePhone"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "officePhone"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "mobilePhone"
-          }
-        ]
-      }
-    },
-    "/employees/licenses": {
-      "post": {
-        "summary": "Save Employee License / Education Information",
-        "tags": [
-          "Employee"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            },
-            "examples": {
-              "Sample Response": {
-                "data": {
-                  "type": "success",
-                  "attributes": {
-                    "info": {
-                      "title": "success",
-                      "message": "Employee License Info is updated successfully.",
-                      "status": "200"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            },
-            "examples": {
-              "Sample Response": {}
-            }
-          }
-        },
-        "description": "Save Employee updated License Information",
-        "parameters": [
-          {
-            "type": "string",
-            "in": "header",
-            "name": "bscId",
-            "required": true
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "licenseName"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "licenseNumber"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "state"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "licenseType"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "date"
-          }
-        ]
       },
-      "parameters": []
-    },
-    "/employees/education": {
-      "post": {
-        "summary": "Save Employee Education Information",
-        "tags": [
-          "Employee"
-        ],
+      "parameters": [
+        {
+          "type": "string",
+          "name": "bscid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "patch": {
+        "summary": "",
+        "operationId": "patch-employees-bscid-name",
         "responses": {
           "200": {
             "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "lastName": "Banaag",
+                "firstName": "Reuben",
+                "middleInitial": "",
+                "suffix": "Mr",
+                "agency": "HQ",
+                "department": "HQ",
+                "status": "Employee",
+                "sex": "Male",
+                "dob": "1990/12/20",
+                "race": "Asian",
+                "veteranStatus:": ""
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
             "schema": {
               "type": "object",
               "properties": {}
             },
             "examples": {
-              "Save Response": {
-                "data": {
-                  "type": "success",
-                  "attributes": {
-                    "info": {
-                      "title": "success",
-                      "message": "Sucessfully saved Education Info.",
-                      "status": "200"
-                    }
-                  }
-                }
+              "Sample Error Response": {
+                "error": "BSCID NOT FOUND"
               }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "type": "object",
-              "properties": {}
             }
           }
         },
-        "description": "Save Employees Education Information",
+        "description": "End point to update the name changes of an employee in PeopleSoft",
         "parameters": [
           {
-            "type": "string",
-            "in": "header",
-            "name": "bscId",
-            "required": true
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "sample Request": {
+                "lastName": "Banaag",
+                "firstName": "Reuben",
+                "middleInitial": "",
+                "suffix": "Mr",
+                "agency": "HQ",
+                "department": "HQ",
+                "status": "Employee",
+                "sex": "Male",
+                "dob": "1990/12/20",
+                "race": "Asian",
+                "veteranStatus:": ""
+              }
+            }
           },
           {
-            "in": "formData",
-            "type": "string",
-            "name": "nameOfSchool"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "state"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "Type of Degree / Certification"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "Date"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "Major"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "Minor"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "example-1": {}
+            }
           }
         ]
       }
     },
-    "/employees/emergency": {
-      "post": {
-        "summary": "Save Employee Emergency Contact  Information",
-        "tags": [
-          "Employee"
-        ],
+    "/employees/{bscid}/contact": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "bscid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "",
+        "operationId": "get-employees-bscid-contact",
         "responses": {
           "200": {
             "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "resStreetAddress": "56 Wood Ave",
+                "resCity": "Fords",
+                "resState": "NJ",
+                "resZipCode": "08830",
+                "mailStreetAddress": null,
+                "mailCity": null,
+                "mailState": null,
+                "mailZipCode": null,
+                "contactH": null,
+                "contactW": null,
+                "contactM": "914-222-3333",
+                "email": "test@123.com"
+              }
+            }
+          }
+        },
+        "description": "Get employee Contact Information for a given BSCID"
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-employees-bscid-contact",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "resStreetAddress": "56 Wood Ave",
+                "resCity": "Edison",
+                "resState": "NJ",
+                "resZipCode": "08817",
+                "mailStreetAddress": null,
+                "mailCity": null,
+                "mailState": null,
+                "mailZipCode": null,
+                "contactH": null,
+                "contactW": null,
+                "contactM": "914-222-3333",
+                "email": "test@123.com"
+              }
+            }
+          }
+        },
+        "description": "Update Employee Contact Info",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
             "schema": {
               "type": "object",
               "properties": {}
             },
-            "examples": {
-              "Save Emergency Contact Response": {
-                "data": {
-                  "type": "success",
-                  "attributes": {
-                    "info": {
-                      "title": "success",
-                      "message": "Emergency Contact saved successfully.",
-                      "status": "200"
-                    }
-                  }
-                }
+            "x-examples": {
+              "Sample Request": {
+                "resStreetAddress": "56 Wood Ave",
+                "resCity": "Edison",
+                "resState": "NJ",
+                "resZipCode": "08817",
+                "mailStreetAddress": null,
+                "mailCity": null,
+                "mailState": null,
+                "mailZipCode": null,
+                "contactH": null,
+                "contactW": null,
+                "contactM": "914-222-3333",
+                "email": "test@123.com"
               }
             }
           },
-          "401": {
-            "description": "Unauthorized",
+          {
+            "in": "body",
+            "name": "body",
             "schema": {
               "type": "object",
               "properties": {}
+            },
+            "x-examples": {
+              "example-1": {}
+            }
+          }
+        ]
+      }
+    },
+    "/employees/{bscid}/licenses": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "bscid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "",
+        "operationId": "get-employees-bscid-licenses",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "licenseName1": "PRNURSE",
+                "licenseNumber1": "1234",
+                "state1": "NJ",
+                "date1": "2020-03-26",
+                "licenseName2": null,
+                "licenseNumber2": null,
+                "state2": null,
+                "date2": null,
+                "licenseName3": null,
+                "licenseNumber3": null,
+                "state3": null,
+                "date3": null
+              }
             }
           }
         },
+        "description": "Get Employee License Information for a Given BSCID"
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-employees-bscid-licenses",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "licenseName1": "PRNURSE",
+                "licenseNumber1": "4567890",
+                "state1": "MA",
+                "date1": "2020-04-14",
+                "licenseName2": null,
+                "licenseNumber2": null,
+                "state2": null,
+                "date2": null,
+                "licenseName3": null,
+                "licenseNumber3": null,
+                "state3": null,
+                "date3": null
+              }
+            }
+          }
+        },
+        "description": "Update Employee License Information",
         "parameters": [
           {
-            "type": "string",
-            "in": "header",
-            "name": "bscId",
-            "required": true
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "Sample Request": {
+                "licenseName1": "PRNURSE",
+                "licenseNumber1": "4567890",
+                "state1": "MA",
+                "date1": "2020-04-14",
+                "licenseName2": null,
+                "licenseNumber2": null,
+                "state2": null,
+                "date2": null,
+                "licenseName3": null,
+                "licenseNumber3": null,
+                "state3": null,
+                "date3": null
+              }
+            }
           },
           {
-            "in": "formData",
-            "type": "string",
-            "name": "contactLastName"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactFirstName"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactStreetAddress"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactCity"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactState"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactZip"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactphone"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactOtherPhone"
-          },
-          {
-            "in": "formData",
-            "type": "string",
-            "name": "contactRelationToEmployee"
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "example-1": {}
+            }
           }
-        ],
-        "description": "Save Employee Emergency Contact Information"
+        ]
+      }
+    },
+    "/employees/{bscid}/education": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "bscid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "",
+        "operationId": "get-employees-bscid-education",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "schoolName1": "UNWESLEYN",
+                "schoolName2": "US AIR FOR",
+                "schoolName3": null,
+                "schoolName4": null,
+                "state1": "NJ",
+                "state2": null,
+                "state3": null,
+                "state4": null,
+                "degree1": "GCSE",
+                "degree2": "GCSE",
+                "degree3": null,
+                "degree4": null,
+                "date1": "2020-03-23",
+                "date2": "2020-03-26",
+                "date3": null,
+                "date4": null,
+                "major1": "521401",
+                "major2": "521401",
+                "major3": null,
+                "major4": null,
+                "minor1": "TEST",
+                "minor2": "TEST1",
+                "minor3": null,
+                "minor4": null
+              }
+            }
+          }
+        },
+        "description": "Get Employee Education Information for a given BSCID"
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-employees-bscid-education",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "schoolName1": "UNWESLEYN",
+                "schoolName2": "US AIR FOR",
+                "schoolName3": null,
+                "schoolName4": null,
+                "state1": "AZ",
+                "state2": null,
+                "state3": null,
+                "state4": null,
+                "degree1": "GCSE",
+                "degree2": "GCSE",
+                "degree3": null,
+                "degree4": null,
+                "date1": "2020-04-23",
+                "date2": "2020-04-26",
+                "date3": null,
+                "date4": null,
+                "major1": "521402",
+                "major2": "521402",
+                "major3": null,
+                "major4": null,
+                "minor1": "MINOR1",
+                "minor2": "MINOR2",
+                "minor3": null,
+                "minor4": null
+              }
+            }
+          }
+        },
+        "description": "Update Employee Education Information",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "Sample Request": {
+                "schoolName1": "UNWESLEYN",
+                "schoolName2": "US AIR FOR",
+                "schoolName3": null,
+                "schoolName4": null,
+                "state1": "AZ",
+                "state2": null,
+                "state3": null,
+                "state4": null,
+                "degree1": "GCSE",
+                "degree2": "GCSE",
+                "degree3": null,
+                "degree4": null,
+                "date1": "2020-04-23",
+                "date2": "2020-04-26",
+                "date3": null,
+                "date4": null,
+                "major1": "521402",
+                "major2": "521402",
+                "major3": null,
+                "major4": null,
+                "minor1": "MINOR1",
+                "minor2": "MINOR2",
+                "minor3": null,
+                "minor4": null
+              }
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "example-1": {}
+            }
+          }
+        ]
+      }
+    },
+    "/employees/{bscid}/emergency": {
+      "parameters": [
+        {
+          "type": "string",
+          "name": "bscid",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "",
+        "operationId": "get-employees-bscid-emergency",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "last": "Rangaraju",
+                "first": "Akhil",
+                "stareetAddress": "56 Wood Ave",
+                "city": "Iselin",
+                "state": "NJ",
+                "zipCode": "08830",
+                "phoneH": "9144333445",
+                "phoneO": "9144678978",
+                "relationship": "Uncle"
+              }
+            }
+          }
+        },
+        "description": "Get Employee Emergency Contact Information for a given BSCID"
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-employees-bscid-emergency",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "examples": {
+              "Sample Response": {
+                "last": "Thomas",
+                "first": "Train",
+                "stareetAddress": "12 westwoord dr",
+                "city": "South Brunswick",
+                "state": "NJ",
+                "zipCode": "08831",
+                "phoneH": "9144333599",
+                "phoneO": "9144678699",
+                "relationship": "Grand Father"
+              }
+            }
+          }
+        },
+        "description": "Update Employee Emergency Contcat Information",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "Sample Request": {
+                "last": "Thomas",
+                "first": "Train",
+                "stareetAddress": "12 westwoord dr",
+                "city": "South Brunswick",
+                "state": "NJ",
+                "zipCode": "08831",
+                "phoneH": "9144333599",
+                "phoneO": "9144678699",
+                "relationship": "Grand Father"
+              }
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            },
+            "x-examples": {
+              "example-1": {}
+            }
+          }
+        ]
       }
     }
   },
-  "definitions": {}
+  "definitions": {},
+  "securityDefinitions": {}
 }
